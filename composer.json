@@ -11,5 +11,15 @@
             "email": "ahsanmshabbir@gmail.com"
         }
     ],
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wisevision\\LaravelEssentials\\LaravelEssentialsServiceProvider"
+            ]
+        }
+    },
+
+
     "require": {}
 }

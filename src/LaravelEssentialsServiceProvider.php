@@ -1,5 +1,4 @@
 <?php
-s
 namespace Wisevision\LaravelEssentials;
 
 use Illuminate\Http\Request;
