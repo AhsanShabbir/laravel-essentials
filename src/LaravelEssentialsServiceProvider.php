@@ -23,8 +23,22 @@ class LaravelEssentialsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Request::macro('username', function(){
-            return request()->username ?? "NotSet";
-        });
+        // Request::macro('username', function(){
+        //     return request()->username ?? "NotSet";
+        // });
+
+          /*
+         * Registering the helper methods to package
+         */
+        $this->registerHelpers();
+
+    }
+
+    public function registerHelpers()
+    {
+        // Load the helpers in src/functions.php
+        if (file_exists($file = __DIR__ . '/helpers.php')) {
+            require $file;
+        }
     }
 }

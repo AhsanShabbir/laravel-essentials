@@ -1,9 +1,13 @@
 {
     "name": "wisevision/laravel-essentials",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Wisevision\\LaravelEssentials\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "authors": [
         {
