@@ -1,0 +1,15 @@
+{
+    "name": "wisevision/laravel-essentials",
+    "autoload": {
+        "psr-4": {
+            "Wisevision\\LaravelEssentials\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ahsan Shabbir",
+            "email": "ahsanmshabbir@gmail.com"
+        }
+    ],
+    "require": {}
+}
