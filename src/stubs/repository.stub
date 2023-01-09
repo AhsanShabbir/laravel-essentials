@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Repositories;
+use Wisevision\LaravelEssentials\Repository\BaseRepository;
+
+/**
+ * Class DummyClass.
+ */
+class DummyClass extends BaseRepository
+{
+    /**
+     * @return string
+     *  Return the model
+     */
+    public function model()
+    {
+        //return Model::class;
+    }
+}

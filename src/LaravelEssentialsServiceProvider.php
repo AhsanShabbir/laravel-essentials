@@ -3,6 +3,7 @@ namespace Wisevision\LaravelEssentials;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
+use Wisevision\LaravelEssentials\Commands\MakeRepository;
 
 class LaravelEssentialsServiceProvider extends ServiceProvider
 {
@@ -45,5 +46,7 @@ class LaravelEssentialsServiceProvider extends ServiceProvider
          if (file_exists($file = __DIR__ . '/helpers/query.php')) {
             require $file;
         }
+
+        $this->commands(MakeRepository::class);
     }
 }
