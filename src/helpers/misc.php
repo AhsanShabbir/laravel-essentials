@@ -1,5 +1,26 @@
 <?php
 
+if(! function_exists('anchor')){
+    /**
+     * Generate anchor tag
+     *
+     * @param string $text
+     * @param string $url
+     * @param string $class
+     * @param string $type
+     * @param string $target
+     * @return string
+     */
+    function anchor(string $text, string $url, string $class = '', string $type="link", string $target = '_self'): string
+    {
+        if($type == 'button')
+            {
+                return "<a href='".$url."' role='button' class='$class' target='".$target."'>".$text."</a>";
+            }
+
+        return "<a href='".$url."' class='".$class."' target='".$target."'>".$text."</a>";
+    }
+}
 
 if(! function_exists('slugify')){
     /**
@@ -23,7 +44,7 @@ if(! function_exists('slugify')){
         // lowercase
         $text = strtolower($text);
         if (empty($text)) {
-            return 'n-a';
+            return '';
         }
         return $text;
     }
@@ -36,7 +57,7 @@ if(! function_exists('getCurrentRouteName')){
      *
      * @return string
      */
-    function getCurrentRouteName():string
+    function getCurrentRouteName(): ?string
     {
         return request()->route()->getName();
     }
@@ -46,12 +67,12 @@ if(! function_exists('qr_code')){
 /**
  * Generate QR Code
  *
- * @param [type] $text
+ * @param string $text
  * @param integer $size
  * @param string $type
  * @return string
  */
-function qr_code($text, $size = 150, $type = "imagetag") : string{
+function qr_code(string $text, $size = 150, $type = "imagetag") : string{
     $url = "https://api.qrserver.com/v1/create-qr-code/?size=".$size."x".$size."&data=".$text;
     if($type == "imagetag"){
         return "<img src='".$url."' alt='QR Code' />";
@@ -66,7 +87,7 @@ if(! function_exists('isLocalHost')){
      *
      * @return boolean
      */
-    function isLocalhost()
+    function isLocalhost(): bool
     {
         $list = array('127.0.0.1', '::1');
         $host = $_SERVER['REMOTE_ADDR'];
@@ -80,3 +101,17 @@ if(! function_exists('isLocalHost')){
     }
 
 }
+
+
+if(! function_exists('isProduction')){
+    /**
+     * Check if the current host is production
+     *
+     * @return boolean
+     */
+    function isProduction(): bool
+    {
+        return config('APP_ENV') == 'production';
+    }
+}
+

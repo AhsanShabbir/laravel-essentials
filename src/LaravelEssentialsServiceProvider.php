@@ -36,8 +36,13 @@ class LaravelEssentialsServiceProvider extends ServiceProvider
 
     public function registerHelpers()
     {
-        // Load the helpers in src/functions.php
-        if (file_exists($file = __DIR__ . '/helpers.php')) {
+        // Load the helpers in src/helpers.php
+        if (file_exists($file = __DIR__ . '/helpers/misc.php')) {
+            require $file;
+        }
+
+         // Load the helpers in src/helpers/query.php
+         if (file_exists($file = __DIR__ . '/helpers/query.php')) {
             require $file;
         }
     }

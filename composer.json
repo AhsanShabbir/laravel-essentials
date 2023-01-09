@@ -4,10 +4,8 @@
     "autoload": {
         "psr-4": {
             "Wisevision\\LaravelEssentials\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
+
     },
     "authors": [
         {
