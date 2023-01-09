@@ -219,6 +219,24 @@ abstract class BaseRepository implements RepositoryContract
     }
 
     /**
+     * Get the last specified model record from the database.
+     *
+     * @param array $columns
+     *
+     * @return Model|static
+     */
+    public function last()
+    {
+        $this->newQuery()->eagerLoad()->setClauses()->setScopes();
+
+        $model = $this->query->latest()->limit(1)->get();
+
+        $this->unsetClauses();
+
+        return $model;
+    }
+
+    /**
      * Get all the specified model records in the database.
      *
      * @param array $columns
